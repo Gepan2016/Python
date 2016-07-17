@@ -1,0 +1,29 @@
+
+from tkinter import *
+import tkinter.simpledialog as dl
+import tkinter.messagebox as mb
+import random
+#设置 GUI 
+root = Tk()
+w = Label(root,text = "Guess Number Game")
+w.pack()
+
+#Message 
+mb.showinfo("Welcome","Welcome to Guess Number Game")
+
+#产生int随机数
+num = random.randint(1,99)
+print(num)
+#主体
+while True:
+    guess = dl.askinteger("Number", "What is you guess?")
+    if guess == num:
+        output = "Bingo!you guess is right!"
+        mb.showinfo("Hint",output)
+        break
+    elif guess < num:
+        output = "No,the number is a higher than that "
+        mb.showinfo("Hint",output)
+    else:   
+        mb.showinfo("Hint","No,the number is a lower than that ")    
+    
